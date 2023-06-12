@@ -1,0 +1,50 @@
+.Board {
+    width: 25%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    position: relative;
+}
+
+.Board::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(17, 0, 255); /* Replace with your desired color using # format */
+    z-index: -2;
+}
+
+.SubBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    position: relative;
+}
+
+.SubBoard::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f00; /* Replace with your desired color using # format */
+    z-index: -1;
+}
+
+.cell {
+    height: 40px;
+    width: 40px;
+
+    padding: 10px;
+    background-color: #ccc;
+}
+
+.disable {
+    pointer-events: none;
+    opacity: 0.9;
+    cursor: not-allowed;
+}
