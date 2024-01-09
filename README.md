@@ -7,6 +7,6 @@ Feito por:
 Nota: [feito só por diverção, porque não tava inscrito na cadeira]
 
 Funções em falta:
- → Limie de escolha do mini tabuleiro na proxima joga
- → Estilo
- → CPU
+- Limie de escolha do mini tabuleiro na proxima joga
+- Estilo
+- CPU
