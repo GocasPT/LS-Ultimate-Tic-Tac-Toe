@@ -2,9 +2,16 @@ import PropTypes from 'prop-types';
 import Cell from "../Cell/Cell.component"
 import './Board.css'
 
-const Board = ({ cells, className, onCellClick }) => {
+const Board = (props) => {
+    const { cells, isDisabled, claimedBy, onCellClick } = props;
+
     return (
-        <div className={`board ${className}`}>
+        <div
+            className={`
+                board
+                ${isDisabled ? 'disable' : ''}
+                ${claimedBy !== null ? `${claimedBy}-claimed` : ''}`}
+        >
             {cells.map((cellsRow, rowIndex) => (
                 <div className='cell-row' key={rowIndex}>
                     {cellsRow.map((cell, cellIndex) => (

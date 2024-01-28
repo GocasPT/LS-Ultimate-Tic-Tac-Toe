@@ -125,10 +125,8 @@ const Game = () => {
               {subBoardsRow.map((subBoard, boardIndex) => (
                 <Board
                   key={`${rowIndex}-${boardIndex}`}
-                  className={`
-                    ${mainBoard[rowIndex][boardIndex] ? `${mainBoard[rowIndex][boardIndex]}-claimed disable`: ''}
-                    ${(currentBoard[0] === rowIndex && currentBoard[1] === boardIndex) || currentBoard[0] === null ? '' : 'disable'}
-                  `}
+                  isDisabled={currentBoard[0] !== null && (currentBoard[0] !== boardIndex || currentBoard[1] !== rowIndex)}
+                  claimedBy={mainBoard[rowIndex][boardIndex]}
                   cells={subBoard}
                   onCellClick={(cellRow, cellCol) => (
                     handleCellClick(rowIndex, boardIndex, cellRow, cellCol)
