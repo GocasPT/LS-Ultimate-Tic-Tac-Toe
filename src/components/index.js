@@ -1,5 +1,0 @@
-export { default as Cell } from "./cell/cell.component"
-export { default as SubBoard } from "./sub-board/sub-board.component.jsx"
-export { default as Board } from "./board/board.component"
-export { default as GamePanel } from "./gamepanel/game-panel.component"
-export { default as PlaterForm } from "./player-form/player-form.component"

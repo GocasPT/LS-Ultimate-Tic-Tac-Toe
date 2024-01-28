@@ -1,50 +1,28 @@
-.Board {
-    width: 25%;
+.board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    position: relative;
-}
-
-.Board::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(17, 0, 255); /* Replace with your desired color using # format */
-    z-index: -2;
-}
-
-.SubBoard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    position: relative;
-}
-
-.SubBoard::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f00; /* Replace with your desired color using # format */
-    z-index: -1;
-}
-
-.cell {
-    height: 40px;
-    width: 40px;
-
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
     padding: 10px;
-    background-color: #ccc;
 }
 
 .disable {
     pointer-events: none;
-    opacity: 0.9;
-    cursor: not-allowed;
+    cursor: default;
+    background-color: black;
+}
+
+.X-claimed {
+    color: #f00;
+    background-color: #f00;
+}
+
+.O-claimed {
+    color: #00f;
+    background-color: #00f;
 }

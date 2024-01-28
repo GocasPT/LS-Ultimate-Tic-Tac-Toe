@@ -1,27 +1,28 @@
-import React from "react"
-import SubBoard from "../sub-board/sub-board.component"
+import PropTypes from 'prop-types';
+import Cell from "../Cell/Cell.component"
+import './Board.css'
 
-import "./board.css"
-
-function Board({ boardData, onSubBoardClick }) {
-    const handleCellClick = (subBoardIndex, cellIndex) => {
-        onSubBoardClick(subBoardIndex, cellIndex);
-    };
-
-    return(
-        <div className="Board">
-            {boardData.map((subBoard, index) => (
-                <SubBoard
-                    key={index}
-                    subBoard={subBoard.cells}
-                    index={index}
-                    //TODO
-                    disable={subBoard.value !== null}
-                    onCellClick={handleCellClick}
-                />
+const Board = ({ cells, className, onCellClick }) => {
+    return (
+        <div className={`board ${className}`}>
+            {cells.map((cellsRow, rowIndex) => (
+                <div className='cell-row' key={rowIndex}>
+                    {cellsRow.map((cell, cellIndex) => (
+                        <Cell
+                            key={`${rowIndex}-${cellIndex}`}
+                            value={cell}
+                            onClick={() => onCellClick(rowIndex, cellIndex)}
+                        />
+                    ))}
+                </div>
             ))}
         </div>
-    )
+    );
 };
+
+Board.propTypes = {
+    cells: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    onCellClick: PropTypes.func.isRequired,
+  };
 
 export default Board;

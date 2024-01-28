@@ -1,14 +1,17 @@
-import React from "react"
+import PropTypes from 'prop-types';
+import './Cell.css'
 
-function Cell({ value, onClick }) {
-    return(
-        <button
-            className="cell"
-            onClick={onClick}
-        >
+const Cell = ({ value, onClick }) => {
+    return (
+        <button className="cell" onClick={onClick} disabled={value !== null}>
             {value}
         </button>
-    )
-}
+    );
+};
 
-export default Cell
+Cell.prototype = {
+    value: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
+};
+
+export default Cell;
